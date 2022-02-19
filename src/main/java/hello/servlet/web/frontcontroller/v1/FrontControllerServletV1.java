@@ -13,11 +13,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+//* -> v1의 하위 파일들 다 접근 가능
 @WebServlet(name = "frontControllerServletV1", urlPatterns = "/front-controller/v1/*")
 public class FrontControllerServletV1 extends HttpServlet {
 
     private Map<String, ControllerV1> controllerMap = new HashMap<>();
 
+    //command + n -> 단축키
     public FrontControllerServletV1() {
         controllerMap.put("/front-controller/v1/members/new-form", new MemberFormControllerV1());
         controllerMap.put("/front-controller/v1/members/save", new MemberSaveControllerV1());
