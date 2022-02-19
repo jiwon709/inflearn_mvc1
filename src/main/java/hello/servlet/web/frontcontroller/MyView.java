@@ -15,6 +15,7 @@ public class MyView {
         this.viewPath = viewPath;
     }
 
+    //페이지와 render 해준다. 라는 의미에서 render
     public void render(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);

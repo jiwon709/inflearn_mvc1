@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class MemberFormControllerV2 implements ControllerV2 {
 
+    //command + option + N : 한줄로 합치기 단축키
     @Override
     public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         return new MyView("/WEB-INF/views/new-form.jsp");

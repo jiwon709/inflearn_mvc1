@@ -36,6 +36,7 @@ public class FrontControllerServletV2 extends HttpServlet {
             return;
         }
 
+        //command + option + v 단축키
         MyView view = controller.process(request, response);
         view.render(request, response);
     }
