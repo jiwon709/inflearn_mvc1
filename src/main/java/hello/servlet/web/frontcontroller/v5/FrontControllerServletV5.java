@@ -28,6 +28,7 @@ public class FrontControllerServletV5 extends HttpServlet {
     private final Map<String, Object> handlerMappingMap = new HashMap<>();
     private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>();
 
+    //초기화
     public FrontControllerServletV5() {
         initHandlerMappingMap();
         initHandlerAdapters();
@@ -52,13 +53,14 @@ public class FrontControllerServletV5 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Object handler = getHandler(request);
+        //밑에 Object handler 로 정리
+        Object handler = getHandler(request);   //핸들러 찾아와. (호출한다.)
         if (handler == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
-        MyHandlerAdapter adapter = getHandlerAdapter(handler);
+        MyHandlerAdapter adapter = getHandlerAdapter(handler);  //핸들러 어댑터 찾아와.
 
         ModelView mv = adapter.handle(request, response, handler);
 
@@ -75,12 +77,15 @@ public class FrontControllerServletV5 extends HttpServlet {
     }
 
     private MyHandlerAdapter getHandlerAdapter(Object handler) {
-        //MemberFormControllerV4
+        //MemberFormControllerV4 / .iters + enter : foreach 문 생성
+        //컨트롤러가 들어오면 핸들러를 다 뒤진다. 서포트를 호출해본다. 그럼 처리 가능하겠죠?
+        //그럼 if 문이 참이 되면서 adapter 반환.
         for (MyHandlerAdapter adapter : handlerAdapters) {
             if (adapter.supports(handler)) {
                 return adapter;
             }
         }
+        //예외발생 + 파라미터 핸들러가 무엇인지 표시
         throw new IllegalArgumentException("handler adapter를 찾을 수 없습니다. handler=" + handler);
     }
 

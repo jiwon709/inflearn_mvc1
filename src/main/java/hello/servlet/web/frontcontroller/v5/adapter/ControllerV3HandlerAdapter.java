@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+//MyHandlerAdapter 에서 만들었던 supports, handle 구현
 public class ControllerV3HandlerAdapter implements MyHandlerAdapter {
 
     @Override
