@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
 
+    //instanceof : 지원하는지 체크한다.
     @Override
     public boolean supports(Object handler) {
         return (handler instanceof ControllerV4);
@@ -28,6 +29,7 @@ public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
 
         String viewName = controller.process(paramMap, model);
 
+        //view, model 셋팅
         ModelView mv = new ModelView(viewName);
         mv.setModel(model);
 
