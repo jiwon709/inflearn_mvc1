@@ -37,6 +37,8 @@ public class FrontControllerServletV3 extends HttpServlet {
             return;
         }
 
+        //paraMap
+        //parameter 뽑아낸다.
         Map<String, String> paramMap = createParamMap(request);
         ModelView mv = controller.process(paramMap);
 
@@ -46,6 +48,7 @@ public class FrontControllerServletV3 extends HttpServlet {
         view.render(mv.getModel(), request, response);
     }
 
+    //viewPath : /WEB-INF/views/ + viewName + .jsp
     private MyView viewResolver(String viewName) {
         return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
