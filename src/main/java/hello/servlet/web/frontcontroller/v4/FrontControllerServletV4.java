@@ -42,7 +42,7 @@ public class FrontControllerServletV4 extends HttpServlet {
         String viewName = controller.process(paramMap, model);
 
         MyView view = viewResolver(viewName);
-        view.render(model, request, response);
+        view.render(model, request, response);  //기존에 modelView 에서 꺼내오던걸 컨트롤러에서 제공하므로 model 만 받으면 된다.
     }
 
     private MyView viewResolver(String viewName) {

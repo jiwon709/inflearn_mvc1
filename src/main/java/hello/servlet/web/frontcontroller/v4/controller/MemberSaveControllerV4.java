@@ -10,6 +10,7 @@ public class MemberSaveControllerV4 implements ControllerV4 {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
 
+    //파라미터에서 값 꺼내오고, 멤버에 넣어주고, save-result 반환.
     @Override
     public String process(Map<String, String> paramMap, Map<String, Object> model) {
         String username = paramMap.get("username");
